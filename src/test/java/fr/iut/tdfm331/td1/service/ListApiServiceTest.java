@@ -91,5 +91,17 @@ public class ListApiServiceTest {
         service.removeMeeting(meetingToRemove);
         Assert.assertFalse(service.getListMeetings().contains(meetingToRemove));
     }
+
+    @Test
+    public void findByNameWithSuccess() throws EmployeeNotFound {
+        //create a list of employee
+        Assert.assertEquals(service.findByName("Baptiste"), service.getListEmployees().get(0));
+    }
+
+    @Test
+    public void findByNameWithFail() throws EmployeeNotFound {
+        //create a list of employee
+        Assert.assertNotEquals(service.findByName("Fanny"), service.getListEmployees().get(0));
+    }
     
 }
