@@ -47,5 +47,5 @@ codes couvert/non couverts par les tests.
 ## Contributors 
 - ANDRES Lucie
 - BRANDI Julien
-- NEUVILLE Benjamin
+- NEUVILLE-BURGUIERE Benjamin
 
