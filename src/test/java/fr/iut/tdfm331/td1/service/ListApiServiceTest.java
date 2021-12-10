@@ -111,6 +111,7 @@ public class ListApiServiceTest {
 
     }
 
+
     @Test
     public void findByObjectWithFail() throws MeetingNotFound{
         Meeting meetingToFound = service.getListMeetings().get(0);
