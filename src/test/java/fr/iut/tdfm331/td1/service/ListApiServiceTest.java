@@ -100,9 +100,13 @@ public class ListApiServiceTest {
     }
 
     @Test
-    public void findByObjectWithFail() throws MeetingNotFound{
+    public void findByObjectWithFail(){
         Meeting meetingToFound = service.getListMeetings().get(0);
-        assertNotEquals(meetingToFound, service.findByObject("Réunion d'avancem"));
+        try {
+            assertNotEquals(meetingToFound, service.findByObject("Réunion d'avancem"));
+        } catch (MeetingNotFound e) {
+            e.printStackTrace();
+        }
 
     }
 
