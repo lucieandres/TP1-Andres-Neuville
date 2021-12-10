@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 /**
  * Unit test file to test ListApiService class
@@ -103,5 +103,24 @@ public class ListApiServiceTest {
         //create a list of employee
         Assert.assertNotEquals(service.findByName("Fanny"), service.getListEmployees().get(0));
     }
-    
+
+    public void findWithObjectWithSuccess() throws MeetingNotFound{
+        Meeting meetingToFound = service.getListMeetings().get(0);
+        assertEquals(meetingToFound, service.findByObject("Réunion d'avancement"));
+
+    }
+
+    public void findWithObjectWithFail() throws MeetingNotFound{
+        Meeting meetingToNotFound = new Meeting("Pas de réunion",
+                "Planck",
+                "12/11/20",
+                "15:30",
+                "16:00",
+                "Revues des dernières actions",
+                service.getListEmployees());
+
+        assertNotEquals(meetingToNotFound, service.findByObject("Réunion d'avancement"));
+
+    }
+
 }
