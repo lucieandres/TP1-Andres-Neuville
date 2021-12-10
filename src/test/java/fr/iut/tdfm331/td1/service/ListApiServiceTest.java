@@ -104,22 +104,15 @@ public class ListApiServiceTest {
         Assert.assertNotEquals(service.findByName("Fanny"), service.getListEmployees().get(0));
     }
 
-    public void findWithObjectWithSuccess() throws MeetingNotFound{
+    public void findByObjectWithSuccess() throws MeetingNotFound{
         Meeting meetingToFound = service.getListMeetings().get(0);
         assertEquals(meetingToFound, service.findByObject("Réunion d'avancement"));
 
     }
 
-    public void findWithObjectWithFail() throws MeetingNotFound{
-        Meeting meetingToNotFound = new Meeting("Pas de réunion",
-                "Planck",
-                "12/11/20",
-                "15:30",
-                "16:00",
-                "Revues des dernières actions",
-                service.getListEmployees());
-
-        assertNotEquals(meetingToNotFound, service.findByObject("Réunion d'avancement"));
+    public void findByObjectWithFail() throws MeetingNotFound{
+        Meeting meetingToFound = service.getListMeetings().get(0);
+        assertNotEquals(meetingToFound, service.findByObject("Réunion d'avancem"));
 
     }
 
