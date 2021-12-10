@@ -95,7 +95,7 @@ public class ListApiServiceTest {
     @Test
     public void findByNameWithSuccess() throws EmployeeNotFound {
         //create a list of employee
-        Assert.assertEquals(service.findByName("Baptiste"), service.getListEmployees().get(0));
+        Assert.assertEquals(service.findByName(service.getListEmployees().get(0).getName()), service.getListEmployees().get(0));
     }
 
     @Test
@@ -104,12 +104,14 @@ public class ListApiServiceTest {
         Assert.assertNotEquals(service.findByName("Fanny"), service.getListEmployees().get(0));
     }
 
+    @Test
     public void findByObjectWithSuccess() throws MeetingNotFound{
         Meeting meetingToFound = service.getListMeetings().get(0);
-        assertEquals(meetingToFound, service.findByObject("Réunion d'avancement"));
+        assertEquals(meetingToFound, service.findByObject(service.getListMeetings().get(0).getObjectMeeting()));
 
     }
 
+    @Test
     public void findByObjectWithFail() throws MeetingNotFound{
         Meeting meetingToFound = service.getListMeetings().get(0);
         assertNotEquals(meetingToFound, service.findByObject("Réunion d'avancem"));
